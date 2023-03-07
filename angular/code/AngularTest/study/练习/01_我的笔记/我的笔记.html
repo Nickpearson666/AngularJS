@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        textarea{
+            resize: none;
+        }
+    </style>
+    H5本地存储技术
+    1. sessionStorage会话存储
+    生命周期：浏览器打开到关闭的过程
+    大小：5MB
+    保存在浏览器端
+    setItem('key', 'session')
+    getItem('key')
+    removeItem('key')
+
+
+    2. localStorage永久存储
+    生命周期：永久， 除非人物删除
+    大小：5MB
+    保存在浏览器端
+    setItem('key', 'session')
+    getItem('key')
+    removeItem('key')
+
+
+    3.cookie
+    作用：用于浏览器和服务端进行通信的
+    特点： 大小4KB/每次发送请求都携带， 导致占用带宽/保存在浏览器/容易被截获，不安全
+    生命周期： 会话：浏览器打开到关闭  人为设置cookie周期
+</head>
+<body ng-app="MyApp" >
+<div ng-controller="MyCtrl">
+    <h2>我的笔记</h2>
+    <textarea name="" id="" cols="30" rows="10" ng-model="msg" maxlength="100"></textarea>
+    <div>
+        <button ng-click="save()">保存</button>
+        <button ng-click="read()">读取</button>
+        <button ng-click="remove()">删除</button>
+    </div>
+    <p>剩余的字数：{{getCount()}}</p>
+</div>
+
+<script type="text/javascript" src="../../js/angular-1.5.5/angular.js"></script>
+<script type="text/javascript" src="app.js"></script>
+</body>
+
+</html>

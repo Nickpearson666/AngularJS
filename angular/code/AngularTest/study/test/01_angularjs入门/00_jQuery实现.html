@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body ng-app>
+
+<!--ng-app 告诉angular结果的区域，在本案例中body被angular接管，会创建一个$rootScope根作用域-->
+<!--ng-model:将当前输入的值与谁关联（属性名：属性值）key-value，并且作为$rootScope根作用域当前的属性-->
+<!--{{}} 表达式显示数据， 从作用域对象的指定属性名上取-->
+
+
+<script src="../../js/angular-1.2.29/angular.js"></script>
+<input type="text" ng-model="username">
+<p>Input:<span>{{username}}</span></p>
+</body>
+</html>

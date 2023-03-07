@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<!--
+常用指令(二)
+  * ng-class: 动态引用定义的样式  {aClass:true, bClass:false}
+  * ng-style: 动态引用通过js指定的样式对象   {color:'red', background:'blue'}
+  * ng-click: 点击监听, 值为函数调用, 可以传$event
+  * ng-mouseenter: 鼠标移入监听, 值为函数调用, 可以传$event
+  * ng-mouseleave: 鼠标移出监听, 值为函数调用, 可以传$event
+-->
+<style>
+  .evenB {
+    background-color: grey;
+  }
+
+  .oddB {
+    background-color: green;
+  }
+
+  div .a{
+    width: 200px;
+    height: 200px;
+    background-color: antiquewhite;
+  }
+</style>
+<body ng-app="MyApp">
+
+<div ng-controller="MyCtrl">
+<!--  <div ng-style=myStyle ></div>-->
+  <div class="a" ng-mouseenter="enter()" ng-mouseleave="leave()" ng-style="myStyle"></div>
+  <ul>
+    <li ng-class="{evenB:$even, oddB:$odd}" ng-repeat="pearson in persons">
+      {{pearson.name}} ---- {{pearson.age}}
+    </li>
+  </ul>
+</div>
+
+
+
+<script type='text/javascript' src="../../js/angular-1.5.5/angular.js"></script>
+<script type="text/javascript">
+angular.module('MyApp', [])
+  .controller('MyCtrl', function ($scope){
+      $scope.myStyle = {
+        background: 'green'
+      }
+
+    $scope.enter = function (){
+      $scope.myStyle.background = 'black'
+      //background = 'black'
+    }
+
+    $scope.leave = function (){
+      $scope.myStyle.background = 'blue'
+      //background = 'black'
+    }
+
+    $scope.persons = [
+      {name : 'kobe', age : 39},
+      {name : 'anverson', age : 41},
+      {name : 'weide', age : 38},
+      {name : 'tim', age : 40},
+      {name : 'curry', age : 29}
+
+    ];
+  })
+</script>
+</body>
+
+</html>
